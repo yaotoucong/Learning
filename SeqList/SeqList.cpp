@@ -15,7 +15,7 @@ Seqlist* createSeqlist(int n)
 	}
 
 	seqlist->capacity = n;
-	seqlist->length = 0;     //´ý²åÈëÎ»ÖÃ
+	seqlist->length = 0;     //å¾…æ’å…¥ä½ç½®
 
 	return seqlist;
 }
@@ -67,7 +67,7 @@ int insertSeq(Seqlist* seqlist, int pos, Element e)
 	//pos ; 1 ,2 ,3 ,4
 	
 	pos -= 1;
-	for (int i = seqlist->length;i > pos - 1;--i) {
+	for (int i = seqlist->length;i >= pos - 1;--i) {
 		seqlist->data[i] = seqlist->data[i - 1];
 	}
 	seqlist->data[pos] = e;
@@ -89,7 +89,7 @@ void deleteSeq_index(Seqlist* seqlist, int index)
 	// pos: 0 , 1 , 2
 
 	for (int i = index;i < seqlist->length;--i) {
-		seqlist->data[i] = seqlist->data[i + 1];       //°æ±¾1£¨´íÎó°æ£©£¬ÕâÀï·¸´íÁË£¬°Ñseqlist->lengthµÄÎ»ÖÃÒ²ÍùÇ°ÃæÒÆ¶¯ÁË
+		seqlist->data[i] = seqlist->data[i + 1];       //ç‰ˆæœ¬1ï¼ˆé”™è¯¯ç‰ˆï¼‰ï¼Œè¿™é‡ŒçŠ¯é”™äº†ï¼ŒæŠŠseqlist->lengthçš„ä½ç½®ä¹Ÿå¾€å‰é¢ç§»åŠ¨äº†
 	}
 	seqlist->length--;
 
@@ -104,7 +104,7 @@ void deleteSeq_index(Seqlist* seqlist, int index)
 
 	// pos: 0 , 1 , 2
 	/*for (int i = index;i < seqlist->length-1;++i) {
-		seqlist->data[i] = seqlist->data[i + 1];       //°æ±¾2£¨ÒÑÐÞ¸Ä£©£¬¾¿¼«ÎÞµÐÄæÌì£¬++iÐ´³ö--i£¬ÑÛÏ¹¿´°ëÌì
+		seqlist->data[i] = seqlist->data[i + 1];       //ç‰ˆæœ¬2ï¼ˆå·²ä¿®æ”¹ï¼‰ï¼Œç©¶æžæ— æ•Œé€†å¤©ï¼Œ++iå†™å‡º--iï¼Œçœ¼çžŽçœ‹åŠå¤©
 	}
 	seqlist->length--;*/
 
